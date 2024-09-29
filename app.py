@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
 import numpy as np
 import plotly_express as px
 import streamlit.components.v1 as components
@@ -282,25 +281,25 @@ def line_chart(dataframe):
     st.plotly_chart(fig)
     return fig
 
-# Function to generate PDF
-def generate_pdf(tables_and_charts):
-    pdf = PDF()
+# # Function to generate PDF
+# def generate_pdf(tables_and_charts):
+#     pdf = PDF()
     
-    for title, content in tables_and_charts:
-        pdf.add_page()
-        pdf.chapter_title(title)
+#     for title, content in tables_and_charts:
+#         pdf.add_page()
+#         pdf.chapter_title(title)
 
-        if isinstance(content, str):
-            pdf.chapter_body(content)
-        else:
-            chart_path = f"{title}.png"
-            content.savefig(chart_path)
-            pdf.image(chart_path, x=10, w=190)
-            plt.close(content)  # Close the figure to free up memory
+#         if isinstance(content, str):
+#             pdf.chapter_body(content)
+#         else:
+#             chart_path = f"{title}.png"
+#             content.savefig(chart_path)
+#             pdf.image(chart_path, x=10, w=190)
+#             plt.close(content)  # Close the figure to free up memory
 
-    pdf_file_path = "performance_report.pdf"
-    pdf.output(pdf_file_path)
-    return pdf_file_path
+#     pdf_file_path = "performance_report.pdf"
+#     pdf.output(pdf_file_path)
+#     return pdf_file_path
 
 # Streamlit app layout
 st.title('Vanessa Trial Blog')
